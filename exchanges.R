@@ -47,7 +47,7 @@ convert_price <- function(price, from, to, date = lubridate::today()){
   
   cat(
     "\n",
-    "We are converting", from, "to", to, "\n",
+    "Converting", from, "to", to, "\n",
     "On", paste0(as.character(date), ","),
     paste0(formatC(price, digits = 2, format = "f", big.mark = ","), from), " is:",
     paste0(formatC(price_date, digits = 2, format = "f", big.mark = ","), to), "\n",
