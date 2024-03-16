@@ -1,6 +1,3 @@
-library(priceR)
-library(tidyverse)
-
 convert_price <- function(price, from, to, date = lubridate::today()){
   
   date <- ymd(date)
@@ -47,18 +44,24 @@ convert_price <- function(price, from, to, date = lubridate::today()){
   
   cat(
     "\n",
-    "Converting", from, "to", to, "\n",
+    "Converting", from, "to", to,
+    "\n",
     "On", paste0(as.character(date), ","),
-    paste0(formatC(price, digits = 2, format = "f", big.mark = ","), from), " is:",
-    paste0(formatC(price_date, digits = 2, format = "f", big.mark = ","), to), "\n",
+    paste0(formatC(price, digits = 2, format = "f", big.mark = ","), " ", from),
+    " is:",
+    paste0(formatC(price_date, digits = 2, format = "f", big.mark = ","), " ", to),
+    "\n",
     "On", paste0(as.character(year_before), ","),
-    paste0(formatC(price, digits = 2, format = "f", big.mark = ","), from),
+    paste0(formatC(price, digits = 2, format = "f", big.mark = ","), " ", from),
     "was:",
     paste0(formatC(price_year_before, digits = 2, format = "f", big.mark = ","),
-    to), "\n",
-    "Difference: ", paste0(my_diff, to), "\n",
-    "Exchange rate on", paste0(as.character(date), ":"), er_date, "\n",
-    "Exchange rate on", paste0(as.character(year_before), ":"), er_year_before, "\n\n"
+    " ", to),
+    "\n",
+    "Difference: ", my_diff, to, "\n",
+    "Exchange rate on", paste0(as.character(date), ":"), er_date,
+    "\n",
+    "Exchange rate on", paste0(as.character(year_before), ":"), er_year_before,
+    "\n\n"
   )
   
 }
