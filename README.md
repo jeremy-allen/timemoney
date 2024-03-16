@@ -1,5 +1,7 @@
 # Time is Money
 
+UPDATE: now a Shiny app!
+
 Use case: you have a price that you want to convert between two currencies, and you want to know the converted price for a given date and the same date 12 months prior.
 
 ## Example
