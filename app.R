@@ -9,7 +9,15 @@ ui <- page_fillable(
   theme = bs_theme(
     bootswatch = "lux"
   ),
-  h1("Time is Money", align = "center"),
+  div(
+    align = "center",
+    span(
+      img(src = "galaxy_logo.png", width = "45px",
+          style = "padding: 0; margin: 0;"),
+      span("Time is Money",
+           style = "font-size: 3rem; line-height: 3rem; vertical-align: bottom")
+    )
+  ),
   h6("a currency converter", align = "center"),
   br(),
   fluidRow(
