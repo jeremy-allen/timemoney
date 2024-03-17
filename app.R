@@ -3,6 +3,13 @@ library(bslib)
 library(priceR)
 library(tidyverse)
 
+currencies_table <- priceR::currencies()
+
+currencies <- as.list(currencies_table$code)
+names(currencies) <- paste0(currencies_table$description,
+                            " - ",
+                            currencies_table$code)
+
 source("exchanges.R")
 
 ui <- page_fillable(
@@ -32,18 +39,22 @@ ui <- page_fillable(
     ),
     column(
       width = 3,
-      textInput(
-        inputId = "from",
-        label = "From Currency",
-        value = "USD"
+      selectInput(
+        inputId = 'from',
+        label = 'From Currency',
+        choices = c(Choose='', currencies),
+        selected = "USD",
+        selectize=TRUE
       )
     ),
     column(
       width = 3,
-      textInput(
-        inputId = "to",
-        label = "To Currency",
-        value = "GBP"
+      selectInput(
+        inputId = 'to',
+        label = 'To Currency',
+        choices = c(Choose='', currencies),
+        selected = "GBP",
+        selectize=TRUE
       )
     ),
     column(
