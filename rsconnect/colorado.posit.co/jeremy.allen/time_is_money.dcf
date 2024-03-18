@@ -5,7 +5,7 @@ account: jeremy.allen
 server: colorado.posit.co
 hostUrl: https://colorado.posit.co/rsc/__api__
 appId: 19100
-bundleId: 110137
+bundleId: 110358
 url: https://colorado.posit.co/rsc/time-is-money/
 version: 1
 asMultiple: FALSE
