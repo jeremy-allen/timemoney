@@ -43,13 +43,7 @@ convert_price <- function(price, from, to, date = lubridate::today()){
     formatC(digits = 2, format = "f", big.mark = ",")
   
   cat(
-    "\n",
     "Converting", from, "to", to,
-    "\n",
-    "On", paste0(as.character(date), ","),
-    paste0(formatC(price, digits = 2, format = "f", big.mark = ","), " ", from),
-    " is:",
-    paste0(formatC(price_date, digits = 2, format = "f", big.mark = ","), " ", to),
     "\n",
     "On", paste0(as.character(year_before), ","),
     paste0(formatC(price, digits = 2, format = "f", big.mark = ","), " ", from),
@@ -57,11 +51,15 @@ convert_price <- function(price, from, to, date = lubridate::today()){
     paste0(formatC(price_year_before, digits = 2, format = "f", big.mark = ","),
     " ", to),
     "\n",
-    "Difference: ", my_diff, to, "\n",
-    "Exchange rate on", paste0(as.character(date), ":"), er_date,
+    "On", paste0(as.character(date), ","),
+    paste0(formatC(price, digits = 2, format = "f", big.mark = ","), " ", from),
+    " is:",
+    paste0(formatC(price_date, digits = 2, format = "f", big.mark = ","), " ", to),
     "\n",
+    "Difference: ", my_diff, to, "\n",
     "Exchange rate on", paste0(as.character(year_before), ":"), er_year_before,
-    "\n\n"
+    "\n",
+    "Exchange rate on", paste0(as.character(date), ":"), er_date
   )
   
 }
