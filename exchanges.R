@@ -39,27 +39,28 @@ convert_price <- function(price, from, to, date = lubridate::today()){
     date = year_before,
     floor_unit = "day")
   
-  my_diff <- (price_date - price_year_before) |> 
+  my_diff_num <- (price_date - price_year_before)
+  
+  my_diff_char <- my_diff_num |> 
     formatC(digits = 2, format = "f", big.mark = ",")
   
+  direction <- if_else(my_diff_num > 0, "more", "less")
+  
   cat(
-    "Converting", from, "to", to,
-    "\n",
-    "On", paste0(as.character(year_before), ","),
-    paste0(formatC(price, digits = 2, format = "f", big.mark = ","), " ", from),
-    "was:",
-    paste0(formatC(price_year_before, digits = 2, format = "f", big.mark = ","),
-    " ", to),
-    "\n",
-    "On", paste0(as.character(date), ","),
-    paste0(formatC(price, digits = 2, format = "f", big.mark = ","), " ", from),
-    " is:",
-    paste0(formatC(price_date, digits = 2, format = "f", big.mark = ","), " ", to),
-    "\n",
-    "Difference: ", my_diff, to, "\n",
-    "Exchange rate on", paste0(as.character(year_before), ":"), er_year_before,
-    "\n",
-    "Exchange rate on", paste0(as.character(date), ":"), er_date
+  "Converting", from, "to", to, "\n", "On", paste0(as.character(year_before),
+                                                   ","),
+  paste0(formatC(price, digits = 2, format = "f", big.mark = ","), " ", from),
+  "was:",
+  paste0(formatC(price_year_before, digits = 2, format = "f", big.mark = ","),
+  " ", to), "\n", "On", paste0(as.character(date), ","),
+  paste0(formatC(price, digits = 2, format = "f", big.mark = ","), " ", from),
+  " is:",
+  paste0(formatC(price_date, digits = 2, format = "f", big.mark = ","), " ", to),
+  "\n", "Difference: ", my_diff_char, to, "\n",
+  "Exchange rate on", paste0(as.character(year_before), ":"), er_year_before,
+  "\n", "Exchange rate on", paste0(as.character(date), ":"), er_date,
+  "\n\n", "Assuming your price has remained the same,\nyour buyer will spend",
+  my_diff_char, direction, "than\nthey did a year prior for the same product.\n"
   )
   
 }
