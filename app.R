@@ -22,7 +22,7 @@ theme_set(theme_minimal(base_size = 16))
 ui <- page_fillable(
   theme = bs_theme(
     bootswatch = "flatly",
-    base_font = font_google("Ledger"),
+    base_font = font_google("Lora"),
     code_font = font_google("JetBrains Mono")
   ),
   div(
@@ -161,7 +161,7 @@ server <- function(input, output, session) {
       dat |> filter(date == as.Date(year_before)),
       tail(dat, 1)
     )
-    browser()
+    
     dat |>
       ggplot(aes(x = date, y = rate)) +
       geom_line(linewidth = .8, alpha = .6, color = "#18bc9c") +
