@@ -1,0 +1,11 @@
+name: exchange
+title:
+username: jeremy.allen
+account: jeremy.allen
+server: colorado.posit.co
+envVars: EXCHANGERATEHOST_ACCESS_KEY
+hostUrl: https://colorado.posit.co/rsc/__api__
+appId: 19253
+bundleId: 114160
+url: https://colorado.posit.co/rsc/content/b1048166-eb6e-45e1-b526-9a810356687d/
+version: 1

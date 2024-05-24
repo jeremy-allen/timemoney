@@ -1,0 +1,11 @@
+name: exchange
+title: Exchange Rates App
+username: jeremy.allen
+account: jeremy.allen
+server: posit-pct
+envVars: EXCHANGERATEHOST_ACCESS_KEY
+hostUrl: https://connect.posit.it/__api__
+appId: 11979
+bundleId: 538179
+url: https://connect.posit.it/content/b3c48cc2-20ee-4dae-9d74-1f07c6a9ecc1/
+version: 1

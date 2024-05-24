@@ -142,7 +142,8 @@ server <- function(input, output, session) {
   
   output$plot <- renderPlot({
     
-    start_date <- input$date - lubridate::years(1)
+    start_date <- input$date - lubridate::years(2)
+    year_before <- input$date - lubridate::years(1)
     
     dat <- historical_exchange_rates(
       from = input$from,
@@ -154,17 +155,23 @@ server <- function(input, output, session) {
     dat <- dat |> 
       rename(rate = names(dat)[[2]]) |> 
       mutate(date = as.Date(date))
-    
+
+    points <- rbind(
+      head(dat, 1),
+      dat |> filter(date == as.Date(year_before)),
+      tail(dat, 1)
+    )
+    browser()
     dat |>
       ggplot(aes(x = date, y = rate)) +
       geom_line(linewidth = .8, alpha = .6, color = "#18bc9c") +
-      geom_point(data = rbind(head(dat, 1), tail(dat, 1)),
+      geom_point(data = points,
                  aes(x = date, y = rate),
                  size = 3) +
-      geom_label(data = rbind(head(dat, 1), tail(dat, 1)),
+      geom_label(data = points,
                  aes(x = date, y = rate, label = date),
                  hjust = 0, vjust = 0) +
-      scale_x_date(date_labels = "%b %Y", date_breaks = "2 months",
+      scale_x_date(date_labels = "%b %Y", date_breaks = "4 months",
                    expand = c(.18,0.1)) +
       labs(
         title = paste0("The ", input$to, " Exchange Rate "),
