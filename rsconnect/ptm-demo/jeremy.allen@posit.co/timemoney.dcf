@@ -1,0 +1,11 @@
+name: timemoney
+title:
+username: jeremy.allen@posit.co
+account: jeremy.allen@posit.co
+server: ptm-demo
+envVars: EXCHANGERATEHOST_ACCESS_KEY
+hostUrl: https://pub.demo.posit.team/__api__
+appId: 32
+bundleId: 93
+url: https://pub.demo.posit.team/content/3418ff17-b648-4055-b041-065c44e8d4bd/
+version: 1

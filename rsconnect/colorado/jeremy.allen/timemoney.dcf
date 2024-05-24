@@ -1,0 +1,11 @@
+name: timemoney
+title:
+username: jeremy.allen
+account: jeremy.allen
+server: colorado
+envVars: EXCHANGERATEHOST_ACCESS_KEY
+hostUrl: https://colorado.posit.co/rsc/__api__
+appId: 19337
+bundleId: 114597
+url: https://colorado.posit.co/rsc/content/76e87359-d523-449b-b4ca-33a73d93626a/
+version: 1
